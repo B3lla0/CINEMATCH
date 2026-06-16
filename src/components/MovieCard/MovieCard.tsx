@@ -5,7 +5,7 @@ interface Props {
   movie: Movie;
 }
 
-function MovieCard({ movie }: props) {
+function MovieCard({ movie }: Props) {
   return (
     <div>
       <img src={getPosterUrl(movie.poster_path) ?? ""} alt={movie.title} />
