@@ -9,6 +9,7 @@ function MovieCard({ movie }: Props) {
   return (
     <div>
       <img src={getPosterUrl(movie.poster_path) ?? ""} alt={movie.title} />
+      <p>{movie.title}</p>
 
       <div>별점</div>
     </div>
