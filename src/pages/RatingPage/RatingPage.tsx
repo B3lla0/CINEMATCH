@@ -13,6 +13,10 @@ function RatingPage() {
       .finally(() => setIsLoading(false));
   }, []);
 
+  const handleRate = (movieId: number, score: number) => {
+    console.log(`${movieId} :: ${score}점`);
+  };
+
   if (isLoading) {
     return <div>영화 불러오는 중 . . .</div>;
   }
@@ -22,7 +26,7 @@ function RatingPage() {
       <p>시청하셨던 영화에 별점을 매겨주세요.</p>
       <div>
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} onRate={handleRate} />
         ))}
       </div>
       <button>결과 보기</button>
