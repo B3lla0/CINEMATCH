@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
+import { getRandomMovies } from "../../services/tmdb";
+import type { Movie } from "../../services/tmdb";
+
 function RatingPage() {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getRandomMovies()
+      .then((data) => setMovies(data))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  if (isLoading) {
+    return <div>영화 불러오는 중 . . .</div>;
+  }
+
   return (
     <div>
       <p>시청하셨던 영화에 별점을 매겨주세요.</p>
-      {/* 영화 목록 */}
+      <div>
+        {movies.map((movie) => (
+          <p key={movie.id}>{movie.title}</p>
+        ))}
+      </div>
       <button>결과 보기</button>
     </div>
   );
