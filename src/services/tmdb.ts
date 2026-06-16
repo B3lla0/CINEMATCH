@@ -59,3 +59,9 @@ export async function getMoviesByGenre(genreId: number): Promise<Movie[]> {
   });
   return response.data.results.slice(0, 10);
 }
+
+// 영화 포스터 이미지 가져오기
+export function getPosterUrl(posterPath: string | null): string | null {
+  if (!posterPath) return null;
+  return `https://image.tmdb.org/t/p/w500${posterPath}`;
+}
