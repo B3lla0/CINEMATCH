@@ -11,6 +11,7 @@ export interface Movie {
   genre_ids: number[];
   vote_average: number;
   release_date: string;
+  adult: boolean;
 }
 
 export interface Genre {
@@ -36,6 +37,9 @@ export async function getRandomMovies(): Promise<Movie[]> {
     params: {
       sort_by: "popularity.desc",
       page: randomPage,
+      include_adult: false,
+      certification_country: "KR",
+      "certification.lte": "15",
     },
   });
 
