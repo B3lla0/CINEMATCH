@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRandomMovies } from "../../services/tmdb";
 import type { Movie } from "../../services/tmdb";
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 function RatingPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -21,7 +22,7 @@ function RatingPage() {
       <p>시청하셨던 영화에 별점을 매겨주세요.</p>
       <div>
         {movies.map((movie) => (
-          <p key={movie.id}>{movie.title}</p>
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
       <button>결과 보기</button>
