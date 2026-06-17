@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./App.css";
+import RatingPage from "./pages/RatingPage/RatingPage";
 
 function App() {
-  return (
-    <>
-      <h1>Movie Rater</h1>
-    </>
-  );
+  const [page, setPage] = useState<"rating" | "result">("rating");
+
+  return <>{page === "rating" ? <RatingPage /> : <div>result</div>}</>;
 }
 
 export default App;
