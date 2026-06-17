@@ -3,7 +3,11 @@ import { getRandomMovies } from "../../services/tmdb";
 import type { Movie } from "../../services/tmdb";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
-function RatingPage() {
+interface Props {
+  onComplete: () => void;
+}
+
+function RatingPage({ onComplete }: Props) {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [ratings, setRatings] = useState<Record<number, number>>({});
@@ -35,7 +39,7 @@ function RatingPage() {
           />
         ))}
       </div>
-      <button>결과 보기</button>
+      <button onClick={onComplete}>결과 보기</button>
     </div>
   );
 }
