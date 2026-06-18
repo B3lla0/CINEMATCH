@@ -4,7 +4,7 @@ import type { Movie } from "../../services/tmdb";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 interface Props {
-  onComplete: () => void;
+  onComplete: (ratings: Record<number, number>, movies: Movie[]) => void;
 }
 
 function RatingPage({ onComplete }: Props) {
@@ -39,7 +39,7 @@ function RatingPage({ onComplete }: Props) {
           />
         ))}
       </div>
-      <button onClick={onComplete}>결과 보기</button>
+      <button onClick={() => onComplete(ratings, movies)}>결과 보기</button>
     </div>
   );
 }
