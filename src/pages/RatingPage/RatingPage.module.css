@@ -1,0 +1,27 @@
+.header {
+  padding: 36px;
+  text-align: center;
+}
+.header span {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 40px;
+}
+.header h1 {
+  margin-bottom: 12px;
+  font-size: 32px;
+}
+.header p {
+  font-size: 16px;
+  color: rgb(170, 170, 170);
+}
+.container {
+  background: linear-gradient(rgb(26, 10, 10) 0%, rgb(13, 13, 26) 100%);
+}
+.movieContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}

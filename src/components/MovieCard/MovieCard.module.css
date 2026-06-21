@@ -1,0 +1,16 @@
+.movieCard {
+  background-color: rgb(26, 26, 46);
+  border-radius: 4px;
+}
+.movieCard img {
+  width: 100%;
+  max-height: 230px;
+}
+.movieInfo {
+  padding: 12px;
+  text-align: center;
+}
+.movieInfo p {
+  font-size: 14px;
+  white-space: nowrap;
+}

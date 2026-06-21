@@ -1,3 +1,5 @@
+import styles from "./StarRating.module.css";
+
 interface Props {
   movieId: number;
   onRate: (movieId: number, score: number) => void;
@@ -6,7 +8,7 @@ interface Props {
 
 function StarRating({ movieId, onRate, rating }: Props) {
   return (
-    <div>
+    <div className={styles.star}>
       {[1, 2, 3, 4, 5].map((star) => (
         <button key={star} onClick={() => onRate(movieId, star)}>
           {star <= rating ? "★" : "☆"}
