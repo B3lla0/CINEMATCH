@@ -1,4 +1,7 @@
-import type { Movie } from "../../services/tmdb";
+import type { Movie, Genre } from "../../services/tmdb";
+import { calcGenreScores } from "../../services/genreServices";
+import { useState, useEffect } from "react";
+import { getGenres } from "../../services/tmdb";
 
 interface Props {
   ratings: Record<number, number>;
@@ -7,8 +10,24 @@ interface Props {
 }
 
 function ResultPage({ ratings, ratedMovies, onBack }: Props) {
-  console.log("ratings", ratings);
-  console.log("ratedMovies", ratedMovies);
+  const [genres, setGenres] = useState<Genre[]>([]);
+
+  useEffect(() => {
+    getGenres().then((data) => setGenres(data));
+  }, []);
+
+  // 장르 점수 계산
+  const genreScores = calcGenreScores(ratings, ratedMovies);
+
+  // 장르 id → 장르 이름 변환
+  const genreNames = genreScores.map(({ genreId, score }) => {
+    const foundGenre = genres.find((genre) => genre.id === genreId);
+    const name = foundGenre ? foundGenre.name : "알 수 없음";
+
+    return { genreId, score, name };
+  });
+
+  console.log("장르 점수:", genreNames);
 
   return (
     <>
