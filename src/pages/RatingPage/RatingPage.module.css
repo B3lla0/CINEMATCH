@@ -1,3 +1,6 @@
+.loding {
+  text-align: center;
+}
 .header {
   padding: 36px;
   text-align: center;
@@ -24,4 +27,20 @@
   gap: 16px;
   max-width: 900px;
   margin: 0 auto;
+}
+.resultBtnCon {
+  padding: 12px 0;
+  text-align: center;
+}
+.resultBtn {
+  padding: 14px 40px;
+  background: rgb(229, 9, 20);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+.resultBtn:hover {
+  background-color: rgb(196, 8, 18);
 }

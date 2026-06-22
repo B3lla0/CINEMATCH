@@ -4,4 +4,12 @@
   color: rgba(255, 255, 255, 0.25);
   font-size: 24px;
   cursor: pointer;
+  transition: transform 0.1 ease;
+}
+.star button:hover {
+  color: #f5c518;
+  transform: scale(1.2);
+}
+.star button.filled {
+  color: #f5c518;
 }

@@ -24,7 +24,7 @@ function RatingPage({ onComplete }: Props) {
   };
 
   if (isLoading) {
-    return <div>🎬 영화 불러오는 중 . . .</div>;
+    return <div className={styles.loding}>🎬 영화 불러오는 중 . . .</div>;
   }
 
   return (
@@ -48,7 +48,14 @@ function RatingPage({ onComplete }: Props) {
           />
         ))}
       </div>
-      <button onClick={() => onComplete(ratings, movies)}>결과 보기</button>
+      <div className={styles.resultBtnCon}>
+        <button
+          className={styles.resultBtn}
+          onClick={() => onComplete(ratings, movies)}
+        >
+          결과 보기 →
+        </button>
+      </div>
     </div>
   );
 }
