@@ -14,7 +14,7 @@ function MovieCard({ movie, onRate, rating }: Props) {
     <div className={styles.movieCard}>
       <img src={getPosterUrl(movie.poster_path) ?? ""} alt={movie.title} />
       <div className={styles.movieInfo}>
-        <p>{movie.title}</p>
+        <p title={movie.title}>{movie.title}</p>
         <StarRating movieId={movie.id} onRate={onRate} rating={rating} />
       </div>
     </div>
