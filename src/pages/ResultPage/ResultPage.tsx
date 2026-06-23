@@ -2,6 +2,7 @@ import type { Movie, Genre } from "../../services/tmdb";
 import { calcGenreScores } from "../../services/genreServices";
 import { useState, useEffect } from "react";
 import { getGenres, getMoviesByGenre } from "../../services/tmdb";
+import ResultMovieCard from "../../components/ResultMovieCard/ResultMovieCard";
 
 interface GenreWithMovies {
   genreId: number;
@@ -57,7 +58,22 @@ function ResultPage({ ratings, ratedMovies, onBack }: Props) {
   return (
     <>
       <h1>선호하는 영화 장르는?</h1>
-      <div>장르별 영화 목록</div>
+      {genreResults.map(({ genreId, name, score, movies }) => (
+        <div key={genreId}>
+          <h2>
+            {name} ({score.toFixed(1)}점)
+          </h2>
+          <div>
+            {movies.map((movie) => (
+              <ResultMovieCard
+                key={movie.id}
+                movie={movie}
+                onClick={(movie) => console.log("클릭:", movie.title)}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
 
       <button onClick={onBack}>다시하기</button>
     </>
