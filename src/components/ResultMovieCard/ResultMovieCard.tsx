@@ -1,5 +1,6 @@
 import type { Movie } from "../../services/tmdb";
 import { getPosterUrl } from "../../services/tmdb";
+import styles from "./ResultMovieCard.module.css";
 
 interface Props {
   movie: Movie;
@@ -8,7 +9,7 @@ interface Props {
 
 function ResultMovieCard({ movie, onClick }: Props) {
   return (
-    <div onClick={() => onClick(movie)}>
+    <div className={styles.movieCard} onClick={() => onClick(movie)}>
       <img src={getPosterUrl(movie.poster_path) ?? ""} alt={movie.title} />
       <p>{movie.title}</p>
     </div>

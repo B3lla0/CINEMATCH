@@ -1,0 +1,22 @@
+.genreSection {
+  max-width: 1100px;
+  padding: 40px 28px;
+  margin: 0 auto;
+}
+.genreSection h2 {
+  margin-bottom: 12px;
+}
+.movieList {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.movieList::-webkit-scrollbar {
+  height: 10px;
+}
+.movieList::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}

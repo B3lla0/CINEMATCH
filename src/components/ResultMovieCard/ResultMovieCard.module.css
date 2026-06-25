@@ -1,0 +1,14 @@
+.movieCard {
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.movieCard img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+.movieCard p {
+  font-size: 12px;
+}
