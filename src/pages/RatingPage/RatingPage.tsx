@@ -13,6 +13,8 @@ function RatingPage({ onComplete }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [ratings, setRatings] = useState<Record<number, number>>({});
 
+  const ratedCount = Object.keys(ratings).length;
+
   useEffect(() => {
     getRandomMovies()
       .then((data) => setMovies(data))
@@ -36,6 +38,10 @@ function RatingPage({ onComplete }: Props) {
           알고 있는 영화에 별점을 매겨주세요.
           <br />
           별점을 기반으로 맞춤 영화를 추천해 드립니다.
+        </p>
+        <p className={styles.ratedMovie}>
+          평가한 영화&nbsp;
+          <span className={styles.ratedCount}>{ratedCount} / 5</span>
         </p>
       </div>
       <div className={styles.movieContainer}>

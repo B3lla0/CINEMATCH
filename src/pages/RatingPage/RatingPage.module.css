@@ -7,7 +7,7 @@
 }
 .header span {
   display: inline-block;
-  margin-bottom: 12px;
+  margin-bottom: 30px;
   font-size: 40px;
 }
 .header h1 {
@@ -17,6 +17,24 @@
 .header p {
   font-size: 16px;
   color: rgb(170, 170, 170);
+}
+.header .ratedMovie {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 6px 16px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  font-size: 14px;
+  color: rgb(170, 170, 170);
+}
+.header .ratedCount {
+  color: rgb(74, 222, 128);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
 }
 .container {
   background: linear-gradient(rgb(26, 10, 10) 0%, rgb(13, 13, 26) 100%);
