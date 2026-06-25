@@ -34,10 +34,10 @@ function ResultPage({ ratings, ratedMovies, onBack }: Props) {
     async function fetchGenreMovies() {
       // 장르 점수 계산
       const genreScores = calcGenreScores(ratings, ratedMovies);
-      const top3 = genreScores.slice(0, 3);
+      const top5 = genreScores.slice(0, 5);
 
       // 장르별 영화 가져오기
-      const promises = top3.map(async ({ genreId, score }) => {
+      const promises = top5.map(async ({ genreId, score }) => {
         // 장르 id → 장르 이름 변환
         const foundGenre = genres.find((genre) => genre.id === genreId);
         const name = foundGenre ? foundGenre.name : "알 수 없음";
