@@ -60,6 +60,17 @@
   cursor: pointer;
   font-size: 16px;
 }
-.resultBtn:hover {
+.resultBtn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+.resultBtnActive {
+  background: rgb(229, 9, 20);
+  box-shadow: 0 4px 20px rgba(229, 9, 20, 0.4);
+}
+.resultBtnActive:hover {
   background-color: rgb(196, 8, 18);
 }

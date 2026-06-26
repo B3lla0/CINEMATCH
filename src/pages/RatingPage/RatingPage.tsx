@@ -56,10 +56,17 @@ function RatingPage({ onComplete }: Props) {
       </div>
       <div className={styles.resultBtnCon}>
         <button
-          className={styles.resultBtn}
-          onClick={() => onComplete(ratings, movies)}
+          className={`${styles.resultBtn} ${
+            ratedCount >= 5 ? styles.resultBtnAtive : ""
+          }`}
+          onClick={() => {
+            if (ratedCount < 5) return onComplete(ratings, movies);
+          }}
+          disabled={ratedCount < 5}
         >
-          결과 보기 →
+          {ratedCount >= 5
+            ? "결과 보기 →"
+            : `${ratedCount} / 5 개 평가 후 이용 가능`}
         </button>
       </div>
     </div>
