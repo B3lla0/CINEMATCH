@@ -14,6 +14,7 @@ function RatingPage({ onComplete }: Props) {
   const [ratings, setRatings] = useState<Record<number, number>>({});
 
   const ratedCount = Object.keys(ratings).length;
+  const remaining = Math.max(0, 5 - ratedCount);
 
   useEffect(() => {
     getRandomMovies()
@@ -39,10 +40,22 @@ function RatingPage({ onComplete }: Props) {
           <br />
           별점을 기반으로 맞춤 영화를 추천해 드립니다.
         </p>
-        <p className={styles.ratedMovie}>
-          평가한 영화&nbsp;
-          <span className={styles.ratedCount}>{ratedCount} / 5</span>
-        </p>
+        <div className={styles.resultBtnCon}>
+          <button
+            className={`${styles.resultBtn} ${
+              ratedCount >= 5 ? styles.resultBtnActive : ""
+            }`}
+            onClick={() => {
+              if (ratedCount < 5) return;
+              onComplete(ratings, movies);
+            }}
+            disabled={ratedCount < 5}
+          >
+            {ratedCount >= 5
+              ? "결과 보기 →"
+              : `${remaining}개 더 평가하면 결과를 볼 수 있어요.`}
+          </button>
+        </div>
       </div>
       <div className={styles.movieContainer}>
         {movies.map((movie) => (
@@ -53,21 +66,6 @@ function RatingPage({ onComplete }: Props) {
             rating={ratings[movie.id] ?? 0}
           />
         ))}
-      </div>
-      <div className={styles.resultBtnCon}>
-        <button
-          className={`${styles.resultBtn} ${
-            ratedCount >= 5 ? styles.resultBtnAtive : ""
-          }`}
-          onClick={() => {
-            if (ratedCount < 5) return onComplete(ratings, movies);
-          }}
-          disabled={ratedCount < 5}
-        >
-          {ratedCount >= 5
-            ? "결과 보기 →"
-            : `${ratedCount} / 5 개 평가 후 이용 가능`}
-        </button>
       </div>
     </div>
   );
