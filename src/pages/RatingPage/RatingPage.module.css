@@ -1,4 +1,4 @@
-.loding {
+.loading {
   text-align: center;
 }
 .header {
@@ -37,6 +37,7 @@
   margin: 0;
 }
 .container {
+  min-height: 100vh;
   background: linear-gradient(rgb(26, 10, 10) 0%, rgb(13, 13, 26) 100%);
 }
 .movieContainer {

@@ -26,7 +26,7 @@ function RatingPage({ onComplete }: Props) {
   };
 
   if (isLoading) {
-    return <div className={styles.loding}>🎬 영화 불러오는 중 . . .</div>;
+    return <div className={styles.loading}>🎬 영화 불러오는 중 . . .</div>;
   }
 
   return (

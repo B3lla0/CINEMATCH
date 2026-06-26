@@ -56,6 +56,10 @@ function ResultPage({ ratings, ratedMovies, onBack }: Props) {
     fetchGenreMovies();
   }, [genres, ratings, ratedMovies]);
 
+  if (isLoading) {
+    return <div>결과 분석 중...</div>;
+  }
+
   return (
     <>
       <h1>선호하는 영화 장르는?</h1>
